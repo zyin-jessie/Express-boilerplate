@@ -5,10 +5,10 @@ const dbConnection = async () => {
   try {
     await mongoose.connect(process.env.MONGODB_URI);
     // console.log(`${kleur.green('✓')} Connected`);
-    return { connected: true };
+    return { connection: true };
   } catch (error) {
     console.log(`${kleur.red('✗')} Connection failed: ${error.message}`);
-    return { connected: false };
+    return { connection: false };
   }
 };
 

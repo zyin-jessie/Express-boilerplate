@@ -18,7 +18,7 @@ app.use(helmet());
 app.use(cors);
 
 // Database Connection
-const dbStatus = await dbConnection();
+const { connection } = await dbConnection();
 
 // Public folder
 app.use(express.static('public'));
@@ -31,6 +31,6 @@ app.get('/', (request, response) => {
 
 // Start the server
 startServer(app, PORT, { 
-    hasApiDocs: false,
-    dbConnected: dbStatus.connected
+  hasApiDocs: false,
+  dbConnection: connection
 });
